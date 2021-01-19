@@ -1,0 +1,13 @@
+
+
+.classpath
+.project
+.settings/
+.vscode
+src/main/webapp/WEB-INF/classes/
+
+
+backend/target/
+frontend/node/node_modules/npm/node_modules/
+frontend/node/node_modules/
+frontend/node_modules/

@@ -1,0 +1,37 @@
+// ATENÇÃO!
+// ---------------------------------------
+// NÃO ALTERAR OU REMOVER NENHUMA REGRA DESTE ARQUIVO!
+//
+
+// correção de problema em que os componentes ficavam sobre todos os demais.
+// .card {
+//     position: inherit;
+// }
+
+.alert {
+    z-index: 0;
+    // text-shadow: 1px 1px 0px rgba(0,0,0,.5);
+
+    .close {
+        outline: none;
+
+        &:hover {
+            color: $light;
+        }
+    }
+}
+
+// na rolagem, os botões dos input groups ficavam por cima do header
+.input-group {
+
+    .btn,
+    .btn:hover,
+    .btn:focus,
+    .input-group-prepend,.input-group-append {
+        z-index: 0
+    }
+
+    .input-group-prepend .btn, .input-group-append .btn {
+        position: relative;
+    }
+}

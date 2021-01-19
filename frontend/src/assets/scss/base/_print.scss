@@ -1,0 +1,186 @@
+@media print {
+
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        text-shadow: none !important;
+        filter: none !important;
+        -ms-filter: none !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        line-height: 1.4em;
+
+    }
+
+    .print-header {
+        border: 1pt solid black;
+        //position: running(top-center);
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: block;
+    }
+
+    nav,
+    footer,
+    video,
+    audio,
+    object,
+    embed,
+    header,
+    #sidebar,
+    .sidebar-menu,
+    .app-header,
+    .app-footer,
+    .sidebar-wrapper {
+        display: none;
+    }
+
+    .print {
+        display: block;
+    }
+
+    .dont-print {
+        display: none;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    #app,
+    #content-wrapper,
+    main {
+        grid-area: unset;
+        display: block;
+        margin: 0;
+    }
+
+    #app:before {
+        display: block;
+        height: 2cm;
+        border: 1pt solid black;
+        content: "";
+        //content: url("https://www.pr.gov.br/logos/celepar/logo-celepar-completo-horizontal.svg");
+        // content: element(print-header);
+    }
+
+    .wrap,
+    main {
+        width: 100%;
+        margin: 0;
+        float: none !important;
+    }
+
+    // Estilos de Texto
+    //
+    body {
+        //font: 12pt Georgia, "Times New Roman", Times, serif;
+        color: #000;
+    }
+
+    h1 {
+        font-size: 20pt;
+        border: 1pt solid black;
+    }
+
+    h2 {
+        font-size: 18pt;
+    }
+
+    h3 {
+        font-size: 14pt;
+    }
+
+    q:after {
+        content: " ("attr(cite) ")";
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a:link:after,
+    a:visited:after {
+        content: " ("attr(href) ") ";
+    }
+
+    a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    p a {
+        word-wrap: break-word;
+    }
+
+    // Viúvas e orfãs
+    //
+    p {
+        widows: 3;
+    }
+
+    p {
+        orphans: 3;
+    }
+
+    // Quebras de páginas
+    //
+    .page-break {
+        page-break-before: always;
+    }
+
+    // reset das grids
+    //
+    header,
+    footer,
+    #app,
+    #content-wrapper,
+    .app-header,
+    main,
+    .sidebar-wrapper {
+        grid-area: unset;
+    }
+
+    #content-wrapper {
+        display: block;
+    }
+
+    // Página
+    //
+    // @page {
+    //     size: a4;
+    //     margin: .5cm;
+    //     counter-increment: page 2;
+
+    //     @top-center {
+    //         font-family: sans-serif;
+    //         font-weight: bold;
+    //         font-size: 2em;
+    //         content: counter(page);
+    //     }
+
+    // }
+
+    @page {
+        margin: 10%;
+
+        //counter-increment: page 2;
+        @top-center {
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 2em;
+            content: counter(page);
+        }
+
+        @top-right {
+            content: url("https://www.pr.gov.br/logos/celepar/logo-celepar-completo-horizontal.svg");
+        }
+    }
+
+}

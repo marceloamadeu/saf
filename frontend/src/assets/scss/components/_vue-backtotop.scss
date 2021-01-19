@@ -1,0 +1,30 @@
+.vue-back-to-top{
+    margin-right: 1rem !important;
+    margin-bottom: $cel-footer-height !important;
+}
+
+.btn-to-top {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 1.5rem;
+    border-radius: 50%;
+    font-size: 22px;
+    background-color: rgba(0,0,0,.3);
+    border: none;
+    outline: none;
+}
+
+@media(max-width: 768px){
+    .btn-to-top {
+        width: 60px;
+        height: 60px;
+        padding: 10px 16px;
+        border-radius: 50%;
+        font-size: 22px;
+        line-height: 22px;
+        outline: none;
+    }
+}

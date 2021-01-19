@@ -1,0 +1,6 @@
+.app-header, .app-footer, .sidebar, .main, .aside-menu {
+	-webkit-transition: margin-left 0.25s, margin-right 0.25s, width 0.25s, -webkit-box-flex 0.25s;
+	transition: margin-left 0.25s, margin-right 0.25s, width 0.25s, -webkit-box-flex 0.25s;
+	transition: margin-left 0.25s, margin-right 0.25s, width 0.25s, flex 0.25s;
+	transition: margin-left 0.25s, margin-right 0.25s, width 0.25s, flex 0.25s, -webkit-box-flex 0.25s, -ms-flex 0.25s;
+}

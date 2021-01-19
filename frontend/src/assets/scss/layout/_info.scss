@@ -1,0 +1,62 @@
+.about-logo-1 {
+    background: $cel-info-logo-1;
+}
+
+.about-logo-2 {
+    background: $cel-info-logo-2;
+}
+
+.brand-container{
+    border-radius: 1rem;
+    background-color: $white;
+    display: flex;
+}
+.brand {
+    padding: .5rem;
+    border-radius: .5rem;
+    margin: .5rem;
+    opacity: 0.5;
+    transition: 0.2s all ease-in-out;
+    text-decoration: none;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+
+    .brand-icon {
+        height: 40px;
+        margin: 1rem;
+        display: inline-block;
+        justify-content: center;
+
+    }
+
+    .brand-label {
+        display: flex;
+        // border: 1px solid green;
+        justify-content: center;
+        text-align: center;
+        color: $body-color;
+        text-decoration: none;
+    }
+
+    &:hover {
+        opacity: 1;
+        text-decoration: none;
+        -webkit-box-shadow: 0px 10px 20px -8px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 10px 20px -8px rgba(0, 0, 0, 0.5);
+        -o-box-shadow: 0px 10px 20px -8px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 10px 20px -8px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.link-control-plaintext {
+    display: inline-block;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: $body-color !important;
+    background-color: transparent;
+    border: solid transparent;
+    border-width: 1px 0;
+  }

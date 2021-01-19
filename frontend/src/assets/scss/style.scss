@@ -1,0 +1,67 @@
+// ATENÇÃO!
+// Não altere este arquivo.
+// 
+
+@import "~bootstrap/scss/functions";
+@import "./themes/default";
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-vue/src/index.scss';
+
+@import './vendor/animate-css/animate';
+
+@import "./base/html";
+@import "./base/fixes";
+@import "./base/error";
+@import "./base/utils";
+@import "./base/spacing";
+@import "./base/typography";
+
+@import "./layout/footer";
+@import "./layout/header";
+@import "./layout/sidebar";
+@import "./layout/main";
+@import "./layout/grid";
+@import "./layout/info";
+
+@import "./components/card";
+@import "./components/cel-useraccount";
+@import "./components/component-info";
+@import "./components/vue-multiselect";
+@import "./components/vue-backtotop";
+@import "./components/vue-form-wizard";
+@import "./components/apexcharts";
+
+@import "./base/print";
+
+@import "./custom/custom";
+
+.dark {
+    @import "./themes/default";
+    @import "./themes/dark";
+
+    @import '~bootstrap/scss/bootstrap';
+    @import '~bootstrap-vue/src/index.scss';
+
+    @import "./base/html";
+    @import "./base/fixes";
+    @import "./base/error";
+    @import "./base/utils";
+    @import "./base/typography";
+    
+    @import "./layout/footer";
+    @import "./layout/header";
+    @import "./layout/sidebar";
+    @import "./layout/main";
+    @import "./layout/grid";
+    @import "./layout/info";
+
+    @import "./components/card";
+    @import "./components/cel-useraccount";
+    @import "./components/vue-multiselect-dark";
+    @import "./components/vue-backtotop";
+    @import "./components/vue-form-wizard";
+    @import "./components/apexcharts";
+    
+    @import "./base/print";
+
+}

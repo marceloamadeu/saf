@@ -1,0 +1,446 @@
+// Color system
+
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+$grays: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+
+
+$blue:    #005bd1;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #c327ab;
+$red:     #c9443f;
+$orange:  #ff5722;
+$yellow:  #e4871d;
+$green:   #17c417;
+$teal:    #20c997;
+$cyan:    #00adb5;
+
+
+//cores da marca Estado
+$rhino: #2B475B;
+$lochmara: #0073C0;
+$green-haze: #009C48;
+$scarlet: #FF2E17;
+$paris-daisy: #FFEE64;
+$shark: #2C2E35;
+$oslo-gray: #85878B;
+$mid-gray: #595B61;
+$iron: #D8D9DA;
+
+//cores do site do estado
+$cerulean: #00B0E6;
+$mine-shaft: #333333;
+
+
+$colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+  (
+    "blue":       $blue,
+    "indigo":     $indigo,
+    "purple":     $purple,
+    "pink":       $pink,
+    "red":        $red,
+    "orange":     $orange,
+    "yellow":     $yellow,
+    "green":      $green,
+    "teal":       $teal,
+    "cyan":       $cyan,
+    "white":      $white,
+    "gray":       $gray-600,
+    "gray-dark":  $gray-800
+  ),
+  $colors
+);
+
+$darken-ratio: 5%;
+
+$primary:       darken($blue, $darken-ratio);
+$secondary:     darken($gray-600, $darken-ratio);
+$success:       darken($green, $darken-ratio);
+$info:          darken($cyan, $darken-ratio);
+$warning:       darken($yellow, $darken-ratio);
+$danger:        darken($red, $darken-ratio);
+$light:         $gray-100;
+$dark:          $gray-800; 
+
+$theme-colors: ();
+
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $theme-colors
+);
+
+//Typography
+$headings-color:              null;
+$text-muted:                  $gray-500;
+$blockquote-small-color:      $gray-600;
+$hr-border-color:             rgba($black, .1);
+$kbd-box-shadow:              inset 0 -.1rem 0 rgba($black, .25);
+$mark-bg:                     #85929c;
+
+// Body
+$body-bg:                   $gray-900;
+$body-color:                $gray-400;
+$border-color:              $gray-800;
+
+// Alerts
+$alert-bg-level:                    5;
+$alert-border-level:                -5;
+$alert-color-level:                 -10;
+
+// Cards
+$card-border-color:                 rgba($black, .125);
+$card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border-width});
+$card-cap-bg:                       rgba($black, .03);
+$card-cap-color:                    $body-color;
+$card-color:                        $body-color;
+$card-bg:                           lighten($gray-900, 5%);
+
+// Modals
+$modal-content-color:               null;
+$modal-content-bg:                  $white;
+$modal-content-border-color:        rgba($black, .2);
+$modal-backdrop-bg:                 $black;
+$modal-backdrop-opacity:            .5;
+$modal-header-border-color:         $border-color;
+$modal-footer-border-color:         $modal-header-border-color;
+
+// Links
+$link-color:                $white;
+$link-hover-color:          lighten($blue, 25%);
+
+// Fonts
+$font-size-base:              0.9375rem;
+
+// Tables
+$table-color:                 $body-color;
+$table-bg:                    $gray-800;
+$table-accent-bg:             rgba($white,.05);
+$table-head-bg:               $black;
+$table-hover-color:           $white;
+$table-hover-bg:              rgba($white,.15);
+$table-border-color:          $gray-700; //$border-color; //rgba($white,.3);
+$table-dark-border-color:     $table-border-color;
+$table-dark-color:            $white;
+
+// Forms
+$input-bg:                              $dark;
+$input-disabled-bg:                     rgba($gray-700,.5);
+$input-color:                           $gray-500;
+$input-border-color:                    lighten($input-bg, 7%); //$gray-700;
+$input-focus-color:                     $white;
+$input-focus-bg:                        lighten($input-bg, 10%);
+$input-plaintext-color:                 $body-color;
+$input-group-addon-color:               $input-color;
+$input-group-addon-bg:                  $gray-700;
+$input-group-addon-border-color:        $input-border-color;
+
+// Dropdowns
+$dropdown-color:                    $gray-200;
+$dropdown-bg:                       $gray-800;
+$dropdown-border-color:             rgba($black, .15);
+$dropdown-divider-bg:               $dropdown-border-color;
+$dropdown-link-color:               $gray-400;
+$dropdown-link-hover-color:         lighten($dropdown-link-color, 5%);
+$dropdown-link-hover-bg:            $gray-700;
+$dropdown-link-disabled-color:      $gray-600;
+$dropdown-header-color:             $gray-600;
+$dropdown-header-bg:                $gray-900;
+
+// Navs
+$nav-tabs-border-color:             rgba($black, 0.6);
+$nav-tabs-link-hover-border-color:  $nav-tabs-border-color;
+$nav-tabs-link-active-color:        $white;
+$nav-tabs-link-active-border-color: $nav-tabs-border-color;
+
+// Navbar
+$navbar-dark-hover-color:           $white;
+$navbar-light-hover-color:          $gray-800;
+$navbar-light-active-color:         $gray-800;
+
+// Pagination
+$pagination-color:                  $gray-400;
+$pagination-bg:                     transparent;
+$pagination-border-color:           $gray-600;
+$pagination-hover-color:            $white;
+$pagination-hover-bg:               rgba($blue, 0.6);
+$pagination-hover-border-color:     $pagination-border-color;
+$pagination-active-color:           $white;
+$pagination-active-bg:              darken($blue, 30%);
+$pagination-active-border-color:    $pagination-border-color;
+$pagination-disabled-color:         rgba($pagination-color, .5);
+$pagination-disabled-bg:            transparent;
+$pagination-disabled-border-color:  $pagination-border-color;
+
+// Jumbotron
+$jumbotron-bg:                      darken($gray-900, 5%);
+
+// Popovers
+$popover-bg:                        lighten($body-bg, 5%);
+
+// Modals
+$modal-content-bg:                  lighten($body-bg, 5%);
+$modal-header-border-color:         rgba(0,0,0,.2);
+
+// Progress bars
+$progress-bg:                       darken($gray-900, 5%);
+$progress-bar-color:                $gray-600;
+
+// List group
+$list-group-bg:                     lighten($body-bg, 5%);
+$list-group-border-color:           rgba($black, 0.6);
+$list-group-hover-bg:               lighten($body-bg, 10%);
+$list-group-active-color:           $white;
+$list-group-active-bg:              $list-group-hover-bg;
+$list-group-active-border-color:    $list-group-border-color;
+$list-group-disabled-color:         $gray-700;
+$list-group-action-color:           $white;
+
+// Modals
+$modal-content-color:               $gray-400;
+$modal-content-bg:                  $gray-900;
+$modal-content-border-color:        $gray-700;
+$modal-header-border-color:         $border-color ;
+$modal-footer-border-color:         $modal-header-border-color ;
+
+// Breadcrumbs
+$breadcrumb-bg:                     rgba($white, .03);
+$breadcrumb-divider-color:          $gray-600;
+$breadcrumb-active-color:           $gray-400;
+$breadcrumb-divider:                quote("/");
+$breadcrumb-border-radius:          0;
+
+// Code
+$pre-color:                         inherit;
+$code-color:                        $yellow;
+
+// Close
+$close-color:                       $gray-400;
+$close-text-shadow:                 0 1px 0 $white;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$component-active-color:      $white;
+$component-active-bg:         theme-color("primary");
+
+
+
+// Modals
+
+$modal-content-color:               null;
+$modal-content-bg:                  $body-bg;
+$modal-content-border-color:        rgba($white, .2);
+$modal-content-box-shadow-xs:       0 .25rem .5rem rgba($black, .5);
+$modal-content-box-shadow-sm-up:    0 .5rem 1rem rgba($black, .5);
+
+$modal-backdrop-bg:                 $black;
+$modal-backdrop-opacity:            .5;
+$modal-header-border-color:         $border-color;
+$modal-footer-border-color:         $modal-header-border-color;
+
+
+
+// Navs
+
+$nav-link-disabled-color:           $gray-600;
+$nav-tabs-border-color:             $gray-300;
+$nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color;
+$nav-tabs-link-active-color:        $white;
+$nav-tabs-link-active-bg:           $gray-700;
+$nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg;
+$nav-pills-link-active-color:       $component-active-color;
+$nav-pills-link-active-bg:          $component-active-bg;
+$nav-divider-color:                 $gray-200;
+
+// Pagination
+
+$pagination-color:                  $link-color;
+$pagination-bg:                     $gray-700;
+$pagination-border-color:           $gray-800;
+
+$pagination-hover-color:            $link-hover-color;
+$pagination-hover-bg:               $gray-200;
+$pagination-hover-border-color:     $gray-300;
+
+$pagination-active-color:           $component-active-color;
+$pagination-active-bg:              $component-active-bg;
+$pagination-active-border-color:    $pagination-active-bg;
+
+$pagination-disabled-color:         $gray-600;
+$pagination-disabled-bg:            $pagination-bg;
+$pagination-disabled-border-color:  $pagination-border-color;
+
+
+//Custom
+
+
+$custom-control-indicator-bg:           $input-bg;
+$custom-control-indicator-border-color: $gray-500;
+$custom-control-indicator-disabled-bg:          $input-disabled-bg;
+
+$custom-control-label-disabled-color:           $gray-600;
+
+$custom-control-indicator-checked-color:        $component-active-color;
+$custom-control-indicator-checked-bg:           $component-active-bg;
+$custom-control-indicator-checked-disabled-bg:  rgba(theme-color("primary"), .5);
+$custom-control-indicator-checked-box-shadow:   none;
+$custom-control-indicator-checked-border-color: $custom-control-indicator-checked-bg;
+
+$custom-control-indicator-focus-box-shadow:     $input-focus-box-shadow;
+$custom-control-indicator-focus-border-color:   $input-focus-border-color;
+
+$custom-control-indicator-active-color:         $component-active-color;
+$custom-control-indicator-active-bg:            lighten($component-active-bg, 35%);
+$custom-control-indicator-active-box-shadow:    none;
+$custom-control-indicator-active-border-color:  $custom-control-indicator-active-bg;
+
+$custom-checkbox-indicator-icon-checked:        str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='#{$custom-control-indicator-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e"), "#", "%23");
+
+$custom-checkbox-indicator-indeterminate-bg:           $component-active-bg;
+$custom-checkbox-indicator-indeterminate-color:        $custom-control-indicator-checked-color;
+$custom-checkbox-indicator-icon-indeterminate:         str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3e%3cpath stroke='#{$custom-checkbox-indicator-indeterminate-color}' d='M0 2h4'/%3e%3c/svg%3e"), "#", "%23");
+$custom-checkbox-indicator-indeterminate-box-shadow:   none;
+$custom-checkbox-indicator-indeterminate-border-color: $custom-checkbox-indicator-indeterminate-bg;
+
+$custom-radio-indicator-icon-checked:           str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#{$custom-control-indicator-checked-color}'/%3e%3c/svg%3e"), "#", "%23");
+
+$custom-select-color:               $input-color;
+$custom-select-disabled-color:      $gray-600;
+$custom-select-bg:                  $input-bg;
+$custom-select-disabled-bg:         $gray-200;
+$custom-select-indicator-color:     $gray-500;
+$custom-select-indicator:           str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e"), "#", "%23");
+$custom-select-background:          $custom-select-indicator no-repeat right $custom-select-padding-x center / $custom-select-bg-size; // Used so we can have multiple background elements (e.g., arrow and feedback icon)
+
+$custom-select-border-color:        $input-border-color;
+$custom-select-box-shadow:          inset 0 1px 2px rgba($black, .075);
+
+$custom-select-focus-border-color:  $input-focus-border-color;
+$custom-select-focus-box-shadow:    0 0 0 $custom-select-focus-width $input-btn-focus-color;
+
+$custom-range-track-bg:             $gray-300;
+$custom-range-track-box-shadow:     inset 0 .25rem .25rem rgba($black, .1);
+
+$custom-range-thumb-bg:                      $component-active-bg;
+$custom-range-thumb-box-shadow:              0 .1rem .25rem rgba($black, .1);
+$custom-range-thumb-focus-box-shadow:        0 0 0 1px $body-bg, $input-focus-box-shadow;
+$custom-range-thumb-active-bg:               lighten($component-active-bg, 35%);
+$custom-range-thumb-disabled-bg:             $gray-500;
+
+$custom-file-focus-border-color:    $input-focus-border-color;
+$custom-file-focus-box-shadow:      $input-focus-box-shadow;
+$custom-file-disabled-bg:           $input-disabled-bg;
+
+$custom-file-color:                 $input-color;
+$custom-file-bg:                    $input-bg;
+$custom-file-border-color:          $input-border-color;
+$custom-file-box-shadow:            $input-box-shadow;
+$custom-file-button-bg:             $input-group-addon-bg;
+$custom-file-text: (
+  en: "Browse"
+);
+
+// ==========================================================
+//    Framework Celepar
+// ==========================================================
+
+$cel-page-title-color: $white;
+$cel-page-title-border: 5px solid $cerulean;
+$cel-highlight: $green;
+$cel-layout-divider-border: 1px solid $gray-700;
+
+$cel-header-bg: $gray-900;
+$cel-header-divider-border: $cel-layout-divider-border;
+$cel-header-client-name-color: $gray-400;
+$cel-header-application-name-color: $white;
+$cel-header-username-color: $body-color;
+$cel-header-brand: url('https://www.pr.gov.br/logos/governo/logo-governo-h-white.svg'); 
+$cel-header-brand-sm: url('https://www.pr.gov.br/logos/governo/logo-governo-h-white.svg'); 
+$cel-footer-brand: url("https://www.pr.gov.br/logos/celepar/logo-celepar-h-white.svg");
+
+$cel-useraccount-button-color: $gray-600;
+$cel-useraccount-button-color-hover: $blue;
+$cel-useraccount-button-bg: transparent;
+$cel-useraccount-button-bg-hover: $gray-700;
+$cel-useraccount-button-image-width: 64px;
+$cel-useraccount-button-image-height: 64px;
+$cel-useraccount-button-image-border-radius: 50%;
+$cel-useraccount-menu-border: none; 
+$cel-useraccount-menu-border-radius: .25rem;
+$cel-useraccount-menu-bg: $gray-800;
+$cel-useraccount-menu-header-bg: $gray-800;
+$cel-useraccount-menu-header-border: 1px solid $gray-700;
+$cel-useraccount-menu-item-color: $gray-200;
+$cel-useraccount-menu-item-color-hover: $gray-900;
+$cel-useraccount-menu-item-bg: $white;
+$cel-useraccount-menu-item-bg-hover: rgba($white, .02);
+$cel-useraccount-menu-shadow: 0 1rem 3rem rgba(0,0,0, .5);
+$cel-useraccount-menu-width: 400px;
+$cel-useraccount-username-color: $white;
+$cel-useraccount-username-font-weight: bold;
+
+$cel-footer-bg: $gray-900;
+$cel-footer-divider-border:  $cel-layout-divider-border;
+
+$cel-sidebar-submenu-bg: rgba($black, 10%);
+$cel-sidebar-bg-image: none;
+$cel-sidebar-bg-image-responsive: none;
+$cel-sidebar-bg-color: lighten($gray-900, 2%);
+$cel-sidebar-bg-color-responsive: $cel-sidebar-bg-color;
+$cel-sidebar-color: $gray-500;
+$cel-sidebar-hover-color: $white;
+$cel-sidebar-active-color: $paris-daisy;
+$cel-sidebar-toggle-color: $gray-400;
+$cel-sidebar-toggle-color-hover: $cerulean;
+$cel-sidebar-toggle-hover-bg: rgba($white, .1);
+$cel-sidebar-divider-border: $cel-layout-divider-border;
+$cel-sidebar-icon-color: $cel-sidebar-color;
+
+
+$cel-display-light-only-block: block;
+$cel-display-light-only-flex: flex;
+$cel-display-dark-only-block: none;
+$cel-display-dark-only-flex: none;
+
+$cel-info-logo-1: url('https://www.pr.gov.br/logos/celepar/logo-celepargovtech-h-white.svg') no-repeat center;
+$cel-info-logo-2: $cel-header-brand no-repeat center;

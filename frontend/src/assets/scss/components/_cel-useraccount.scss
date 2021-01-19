@@ -1,0 +1,177 @@
+    .i-block {
+        display: inline-block;
+        width: 1.5rem;
+    }
+
+    .user-menu-button {
+        text-decoration: none;
+        transition: .2s all ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 50%;
+
+        &:hover {
+            text-decoration: none;
+            background: $cel-useraccount-button-bg-hover;
+        }
+    }
+
+    .user-menu {
+        position: absolute;
+        z-index: 100;
+        top: $cel-header-height;
+        right: 1rem;
+        width: $cel-useraccount-menu-width;
+        border-radius: $cel-useraccount-menu-border-radius;
+        background-color: $cel-useraccount-menu-bg;
+        box-shadow: $cel-useraccount-menu-shadow;
+        border: $cel-useraccount-menu-border;
+        margin-left: -$cel-useraccount-menu-image-width;
+
+        .header {
+            align-items: center;
+            margin-bottom: .5rem;
+            border-radius: $cel-useraccount-menu-border-radius $cel-useraccount-menu-border-radius 0 0;
+            border-bottom: $cel-useraccount-menu-header-border;
+            background: $cel-useraccount-menu-header-bg;
+            display: flex;
+
+            ul {
+                padding: 0;
+                list-style: none;
+
+                li {
+                    padding: 0 .5rem;
+                }
+            }
+
+            .user-photo-menu {
+                border-radius: $cel-useraccount-menu-image-border-radius;
+                height: $cel-useraccount-menu-image-height;
+                width: $cel-useraccount-menu-image-width;
+                margin-right: .5rem;
+            }
+
+            .username {
+                display: inline-block;
+                font-size: 1rem;
+                color: $cel-useraccount-username-color;
+                padding: 0;
+                margin: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: $cel-useraccount-menu-username-width;
+                font-weight: $cel-useraccount-username-font-weight;
+            }
+
+        }
+
+        .user-menu-body {
+            padding: 0 0 .5rem 0;
+
+            ul {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    list-style: none;
+                    padding: .5rem 1rem;
+                    text-decoration: none;
+
+                    &:hover {
+                        background-color: $cel-useraccount-menu-item-bg-hover;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: $cel-useraccount-menu-item-color;
+                        display: block;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .user-photo {
+        height: 40px;
+        /* width: 100%; */
+        border-radius: 50%;
+        border: 3px solid $cel-useraccount-button-bg;
+        margin: 0 1rem;
+        transition: all .2s ease-in-out;
+
+        &:hover{
+            border-color:$cel-useraccount-button-bg-hover;
+            box-shadow: 0 2px 3px rgba($black, .25); 
+        }
+    }
+
+    .slide-fade-enter-active {
+        transition: all 0.2s ease;
+    }
+
+    .slide-fade-leave-active {
+        transition: all 0.2s ease;
+    }
+
+    .slide-fade-enter {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    .slide-fade-leave-to {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    // /*
+    @include media-breakpoint-down(xs) {
+        .dropdown-icon {
+            display: none
+        }
+
+        .username {
+            display: none;
+        }
+
+        .user-menu {
+            width: 90%;
+            margin: 0;
+
+            .header {
+                display: flex;
+                justify-content: center;
+                flex-flow: column;
+                padding: .5rem 1rem;;
+                box-sizing: border-box;
+                // border: 1px dotted green;
+
+                .id-container{
+                    display: flex;
+                    flex-flow: wrap;
+                    justify-content: center;
+                    width: 100%;
+                    margin: .5rem 0;
+                }
+                .username {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 100%;
+                    max-width: 100%;
+                    font-weight: bold;
+                    text-align: center;
+                }
+
+                .user-photo-menu {
+                    margin-top: -1.5rem;
+                    border-radius: 50% !important;
+                    border: 3px solid white;
+                }
+            }
+        }
+
+    }

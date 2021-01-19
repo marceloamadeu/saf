@@ -1,0 +1,30 @@
+main {
+    padding: 0 1rem;
+    background: $body-bg;
+    color: $body-color;
+
+    &>.breadcrumb {
+        padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+        margin: 0 -1rem .5rem -1rem;
+        border-radius: 0;
+        background: $breadcrumb-bg;
+    }
+
+}
+
+.app-main {
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 0;
+    background-color: $body-bg;
+    padding-bottom: 2rem;
+}
+
+@media(max-width: 768px) {
+
+    #content-wrapper {
+        margin-left: 0;
+        // overflow-x: hidden;
+    }
+
+}

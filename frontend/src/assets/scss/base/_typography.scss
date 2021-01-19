@@ -1,0 +1,39 @@
+.app-title{
+    margin: 1rem 0;
+}
+h1 {
+    &.app-title {
+        border-left: $cel-page-title-border;
+        text-transform: uppercase;
+        padding: 0 0 0 1rem;
+        font-weight: bold;
+        margin: 1rem 0 0 0;
+        font-size: 1.2rem;
+        color: $cel-page-title-color;
+
+        &.subtitle {
+            color: $primary;
+        }
+    }
+}
+
+h2 {
+    &.app-title {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+}
+
+h3 {
+    &.app-title {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}
+
+h4 {
+    &.app-title {
+        font-size: 1rem;
+        text-decoration: underline;
+    }
+}

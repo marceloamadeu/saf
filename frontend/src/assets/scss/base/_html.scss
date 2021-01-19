@@ -1,0 +1,31 @@
+#app {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: $body-bg;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+}
+
+// h3{
+//     font-size: 1rem;
+//     font-weight: 600;
+//     margin: 1rem 0;
+// }
+
+.print {
+    display: none;
+}
+
+.dont-print {
+    display: block;
+}
+
+@media (max-width:768px) {
+    #app {
+        min-height: 100vh;
+    }
+
+}

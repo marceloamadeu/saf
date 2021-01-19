@@ -1,0 +1,11 @@
+.vue-form-wizard .wizard-header {
+    display: none;
+}
+
+.wizard-tab-content {
+    display: flex; // to avoid horizontal scroll when animating
+    .wizard-tab-container {
+      display: block;
+      animation: fadeInRight 0.3s;
+    }
+  }

@@ -1,0 +1,26 @@
+
+$custom-error-gradient: linear-gradient(left top, #{$warning} 10%, #{$danger} 70%);
+
+.error-code {
+    font-size: 8rem;
+    font-weight: bold;
+    background: $custom-error-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.error-message {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+img.error-icon {
+    width: 300px;
+  }
+  
+  @media (max-width: 768px) {
+    img.error-icon {
+      width: 150px;
+    }
+  }

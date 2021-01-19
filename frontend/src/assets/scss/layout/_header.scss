@@ -1,0 +1,149 @@
+header {
+    .app-header {
+        -webkit-box-shadow: 0 .5rem 1.5rem rgba(0,0,0,0.03);
+        -moz-box-shadow: 0 .5rem 1.5rem rgba(0,0,0,0.03);
+        box-shadow: 0 .5rem 1.5rem rgba(0,0,0,0.03);
+
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        position: fixed;
+        width: 100vw;
+        padding: 0 1rem 0 .5rem;
+        border-bottom: $cel-header-divider-border;
+        background-color: $cel-header-bg;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        align-items: center;
+        z-index: 99;
+        height: $cel-header-height;
+
+        #toggle-sidebar-sm {
+            display: none;
+        }
+
+        #toggle-sidebar-lg {
+            display: inline-block;
+
+            &:hover{
+                //background: $cel-sidebar-toggle-hover-bg;
+                color: $cel-sidebar-toggle-color-hover;
+            }
+
+            svg {
+                path {
+                    fill: $cel-sidebar-toggle-color;
+                }
+            }
+        }
+    }
+
+    .btn:focus,
+    .btn.focus {
+        outline: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+}
+
+ul.identification {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 2;
+    align-items: center;
+}
+
+.client-name {
+    font-size: 0.8rem;
+    color: $cel-header-client-name-color;
+    text-transform: uppercase;
+    margin-bottom: -.5rem;
+}
+
+.application-name {
+    font-size: 1.6em;
+    color: $cel-header-application-name-color;
+    margin: 4px 0 0 0;
+    padding: 12px 0 0 0 -16px;
+    font-weight: bold;
+    margin: 0;
+}
+.navbar-brand{
+    display: flex;
+    width: $cel-header-brand-width;
+}
+.navbar-brand-full {
+    display: inline-block;
+    width: 6.5rem; //104px;
+    height: 46px;
+    background-image: $cel-header-brand;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    // margin-left: .25rem;
+    // margin-right: 6.25rem;
+}
+
+@media (max-width: 768px) {
+
+    header {
+        .app-header {
+            padding: 0 .25rem;
+            align-items: center;
+        }
+    }
+
+    .navbar-brand,
+    .navbar-brand-full {
+        display: none;
+    }
+    ul.identification {
+        display: flex;
+        margin: 0 auto;
+    }
+
+    .client-name {
+        display: none;
+    }
+
+    .application-name {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    #user-account {
+        li {
+            font-size: 1.2rem;
+            padding: .25rem;
+        }
+    }
+
+    .application-name {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        flex-grow: 1;
+        max-width: 66vw;
+        font-size: 1.2em;
+        color: $cel-header-application-name-color;
+        margin: 0;
+        padding: 12px 0 0 0 -16px;
+        font-weight: bold;
+    }
+
+}
+
+@include media-breakpoint-down(lg) { 
+    .navbar-brand,
+    .navbar-brand-full {
+        display: none;
+    }
+
+ }
