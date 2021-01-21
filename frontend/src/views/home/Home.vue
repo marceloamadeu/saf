@@ -3,19 +3,23 @@
     <div class="fluid">
 
     <h1 class="app-title">Dashboard</h1>
-     
+
+     <b-card>
+        <div slot="header">
+            <b>Incluir Graficos</b>            
+        </div>       
+     </b-card>
 </div>
 
 </template>
 
 <script>
-import VueApexCharts from 'vue-apexcharts'
 import UtilAPI from '@/api/UtilAPI'
 
 export default {
   name: 'Home',
   components: {
-    VueApexCharts
+    
   },
   data: function () {
     return {

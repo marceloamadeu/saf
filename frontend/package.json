@@ -19,6 +19,7 @@
     "vee-validate": "^3.4.5",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.6.0",
+    "vue-cli": "^2.9.6",
     "vue-click-outside": "^1.1.0",
     "vue-i18n": "^8.22.3",
     "vue-router": "^3.1.3",
