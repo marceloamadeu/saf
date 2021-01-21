@@ -15,11 +15,11 @@ _Prerequisites_:
 
 3. Build the docker image with:
 
-`docker build -f quarkus-vue-backend/src/main/docker/Dockerfile.jvm -t quarkus/quarkus-vue-jvm .`
+`docker build -f backend/src/main/docker/Dockerfile.jvm -t quarkus/quarkus-saf-jvm .`
 
 4. Run the container using:
 
-`docker run -i --rm -p 8080:8080 -m 256m --cpus=2 quarkus/quarkus-vue-jvm`
+`docker run -i --rm -p 8080:8080 -m 256m --cpus=2 quarkus/quarkus-saf-jvm`
 
 ## Remove images except one
 

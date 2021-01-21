@@ -5,14 +5,26 @@
 
 <script>
 //import FruitApi from '@/api/FruitAPI';
-import FruitApi from '@/api/comum';
-import Fruit from '@/components/Fruit';
+//import FruitApi from '@/api/comum';
+//import Fruit from '@/view/Fruit';
+import Admin from '@/layout/Admin.vue'
+import Loading from '@/layout/Loading'
+import Blank from '@/layout/Blank'
 
 export default {
   name: 'App',
-  components: {
-    Fruit
+  computed: {
+    layout () {
+      return this.$store.getters.getLayout
+    }
   },
+  components: {    
+    'admin': Admin,
+    'loading': Loading,
+    'blank': Blank,
+  }
+  /*
+  ,
   data() {
     return {
       fruits: []
@@ -23,5 +35,7 @@ export default {
       this.fruits = fruits.data.data.results;
     })
   }
+  */
+  
 }
 </script>
