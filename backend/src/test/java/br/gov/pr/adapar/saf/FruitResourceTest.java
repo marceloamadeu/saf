@@ -1,4 +1,4 @@
-package com.popokis.quarkus_vue;
+package br.gov.pr.adapar.saf;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
