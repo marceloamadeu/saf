@@ -1,4 +1,4 @@
-package br.gov.pr.adapar.saf;
+package br.gov.pr.adapar.saf.resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
