@@ -4,8 +4,6 @@ import axios from 'axios';
 
 const apiUrl = process.env.VUE_APP_ROOT_API
 
-
-
 export default {
     getFruits: (callback) => {
         const apiUrlFruits = apiUrl + 'v1/fruits';

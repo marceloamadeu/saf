@@ -67,7 +67,7 @@ import store from '@/store/store'
 import { mediaBreakpoint } from '@/assets/defs.js'
 
 export default {
-  name: 'UserAccount',
+  //name: 'UserAccount',
   data () {
     return {
       darkTheme: this.$store.getters.getTheme === 'dark',

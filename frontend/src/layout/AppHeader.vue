@@ -22,7 +22,7 @@
       </ul>
 
       <b-navbar-nav class="ml-auto">
-        <UserAccount />
+       
       </b-navbar-nav>
     </div>
   </header>
@@ -30,8 +30,16 @@
 
 <script>
 
+import { application } from '@/application.js'
+
 export default {  
 
+ data () {
+    return {
+      AppInfo: application,
+      contracted: false
+    }
+  },
   methods: {
     toggleSidebar () {
       let sidebar =

@@ -12,10 +12,24 @@ export default {
     
     {
       name: 'Frutas',
-      url: '/fruit',
+      url: '/fruits',
       icon: 'fas fa-chalkboard',      
     },
     
 
   ],
+
+
+
+  itensAcesso (itens) {
+    var i
+    var permitidos = new Array()
+
+    for (i = 0; i < itens.length; i++) {
+      permitidos.push(itens[i])
+    }
+
+    return permitidos
+  },
+
 }

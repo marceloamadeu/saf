@@ -41,10 +41,31 @@ function (error) {
 
 
 
-const apiUrlFruits = apiUrl + 'v1/fruits';
+//const apiUrlFruits = apiUrl + 'v1/fruits';
 export default {   
-  getFruits: () => {     
-    return axios.get(apiUrlFruits)
+  //getFruits: () => {     
+  //  return axios.get(apiUrlFruits)
+  //}
+
+  getFruits: (page, perPage, sortBy, sortDesc) => {
+    if (page == null || page === undefined) {
+      page = 1
+    }
+
+    if (perPage == null || perPage === undefined) {
+      perPage = 50
+    }
+
+    if (sortBy == null) {
+      return axios.get(`${apiUrl}v1/fruits?page=${page}&perPage=${perPage}`)
+    } else {
+      let ordem = 'ASCENDING'
+      if (sortDesc) {
+        ordem = 'DESCENDING'
+      }
+
+      return axios.get(`${apiUrl}v1/fruits?page=${page}&perPage=${perPage}&sortOrder=${ordem}&sortField=${sortBy}`)
+    }
   }
   
 }

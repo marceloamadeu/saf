@@ -1,7 +1,7 @@
 <template>
   <div class="fluid">
       
-    TESTE
+    <ListFruit/>
       
   </div>
 </template>
@@ -10,8 +10,14 @@
 
 <script>
 
-import UtilAPI from '@/api/UtilAPI';
+//import UtilAPI from '@/api/UtilAPI';
+import ListFruit from './components/ListFruit'
 
+export default {
+  name: 'fruit', 
+  components: { ListFruit }   
+}
+/*
 export default {
   name: 'fruit',    
   data() {
@@ -37,6 +43,7 @@ export default {
     },
   }
 }
+*/
 </script>
 
 <style>

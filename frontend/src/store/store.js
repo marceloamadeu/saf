@@ -1,9 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import exemplo from './modules/exemplo.js'
+import layout from './modules/layout.js'
 
 Vue.config.devtools = true
 Vue.use(Vuex)
 
+export default new Vuex.Store({
+  modules: {
+    exemplo,
+    layout
+  }
+})
+
+/*
 export default new Vuex.Store({
   state: {
     layout: 'loading', // loading, admin, blank
@@ -58,5 +68,7 @@ export default new Vuex.Store({
 
   },
   modules: {
+  
   }
 })
+*/

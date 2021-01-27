@@ -23,7 +23,6 @@ export default {
   },
   data: function () {
     return {
-      matriculas: [],
       // bar
       options: {
         xaxis: {
@@ -45,10 +44,8 @@ export default {
           }
         ]
       },
-      series: [{
-        name: '',
-        data: [],
-        labels: []
+      fruits: [{
+        name: ''        
       }],
       // pie/donut
       donutChartOptions: {
@@ -71,8 +68,7 @@ export default {
             }
           }
         ]
-      },
-      donutChartData: []
+      },      
     }
   },
   created () {
@@ -83,7 +79,7 @@ export default {
       UtilAPI.getFruits()
         .then(res => {
           this.fruits = res.data
-          this.prepareChats()
+          //  this.prepareChats()
         })
         .catch(err => {
           this.$store.commit('setMessages', err.response.data)
