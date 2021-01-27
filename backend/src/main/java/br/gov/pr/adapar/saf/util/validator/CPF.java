@@ -1,4 +1,4 @@
-package br.gov.pr.celepar.quarkusexemplo.util.validator;
+package br.gov.pr.adapar.saf.util.validator;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

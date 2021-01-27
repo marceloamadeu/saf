@@ -56,7 +56,7 @@ public class FruitBusiness {
 		
 		// Verifica se a fruit existe
 		if(this.existe(fruit.getId()) == false) {
-			LOG.fine("Debug na execucao do FruitBusiness: alterar = não existe - idFruit="+fruit.getId());
+			LOG.fine("Debug na execucao do FruitBusiness: alterar = não existe - id="+fruit.getId());
 			throw new ApplicationServiceException("fruit.naocadastrado", Response.Status.NOT_FOUND.getStatusCode());
 		}
 				
@@ -74,7 +74,7 @@ public class FruitBusiness {
 		//Valida parâmetro id
 		if(id == null) {
 			List<MessageServiceError> listaErros = new ArrayList<MessageServiceError>(0);
-			listaErros.add(new MessageServiceError(MessageBundle.getMessage("fruit.idfruit"), "idFruit"));
+			listaErros.add(new MessageServiceError(MessageBundle.getMessage("fruit.id"), "id"));
 			throw new ApplicationServiceException("message.parametrosnaoinformados", Response.Status.BAD_REQUEST.getStatusCode(), listaErros);
 		}
 		
@@ -82,7 +82,7 @@ public class FruitBusiness {
 		
 		//Valida se série existe		
 		if(fruit == null || fruit.getId() == null) {
-			LOG.fine("Debug na execucao do FruitBusiness: excluir = não pode excluir = não existe - idFruit="+id);
+			LOG.fine("Debug na execucao do FruitBusiness: excluir = não pode excluir = não existe - id="+id);
 			throw new ApplicationServiceException("fruit.naoexiste", Response.Status.BAD_REQUEST.getStatusCode());
 		}
 				
@@ -127,23 +127,23 @@ public class FruitBusiness {
 	}
 	
 
-	public Fruit obterPorId(Integer idFruit) throws ApplicationServiceException {
-		//Valida parâmetro idFruit
-		if(idFruit == null) {
+	public Fruit obterPorId(Integer id) throws ApplicationServiceException {
+		//Valida parâmetro id
+		if(id == null) {
 			List<MessageServiceError> listaErros = new ArrayList<MessageServiceError>(0);
-			listaErros.add(new MessageServiceError(MessageBundle.getMessage("fruit.idfruit"), "idFruit"));
+			listaErros.add(new MessageServiceError(MessageBundle.getMessage("fruit.id"), "id"));
 			throw new ApplicationServiceException("message.parametrosnaoinformados", Response.Status.BAD_REQUEST.getStatusCode(), listaErros);
 		}
 		
 		Fruit fruit = null;
 		try {
-			fruit = fruitDAO.obterPorId(idFruit);		 
+			fruit = fruitDAO.obterPorId(id);		 
 		} catch (Exception e) {
 			LOG.log(Level.SEVERE,"Erro na execucao do FruitBusiness: obterPorId", e);
 			throw new ApplicationServiceException("fruit.erro", new String[] { "obterPorId" }, Response.Status.INTERNAL_SERVER_ERROR.getStatusCode());
 		} finally {
 			if (fruit == null) {
-				LOG.fine("Debug na execucao do FruitBusiness: obterPorId = nenhumresultado - CPF="+idFruit);
+				LOG.fine("Debug na execucao do FruitBusiness: obterPorId = nenhumresultado - ID="+id);
 				throw new ApplicationServiceException("fruit.naocadastrado", new String[] { "obterPorId" }, Response.Status.NOT_FOUND.getStatusCode());
 			}
 		}
@@ -152,11 +152,11 @@ public class FruitBusiness {
 	}
 	
 
-	private Boolean existe(Integer idFruit) throws ApplicationServiceException {
+	private Boolean existe(Integer id) throws ApplicationServiceException {
 		
 		Boolean existe = false;
 		try {
-			if (this.obterPorId(idFruit) != null) {
+			if (this.obterPorId(id) != null) {
 				existe = true;
 				LOG.fine("Debug na execucao do FruitBusiness: existe = true");
 			}

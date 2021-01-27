@@ -1,4 +1,4 @@
-package br.gov.pr.celepar.quarkusexemplo.util.validator;
+package br.gov.pr.adapar.saf.util.validator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
-import br.gov.pr.celepar.quarkusexemplo.util.message.MessageServiceError;
+import br.gov.pr.adapar.saf.util.message.MessageServiceError;
 
 /**
  * Classe que implementa funcionalidades de validação de campos (Bean Validation)
