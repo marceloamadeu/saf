@@ -43,10 +43,15 @@ function (error) {
 
 //const apiUrlFruits = apiUrl + 'v1/fruits';
 export default {   
-  //getFruits: () => {     
-  //  return axios.get(apiUrlFruits)
-  //}
-
+  alterarFruit: (fruit) => {
+    return axios.put(`${apiUrl}v1/fruits`, fruit)
+  },
+  salvarFruit: (fruit) => {
+    return axios.post(`${apiUrl}v1/fruits`, fruit)
+  },
+  deletarFruit: (fruit) => {
+    return axios.delete(`${apiUrl}v1/fruits/${fruit.id}`)
+  },
   getFruits: (page, perPage, sortBy, sortDesc) => {
     if (page == null || page === undefined) {
       page = 1

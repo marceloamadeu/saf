@@ -1,5 +1,6 @@
 package br.gov.pr.adapar.saf.resource;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -46,15 +47,6 @@ public class FruitResource {
 	@Inject
 	FruitBusiness fruitBusiness;
 
-    /*
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        System.out.println("Finalmente....");
-        return "hello from Quarkus-Vue!\nNumber Of processors: " + Runtime.getRuntime().availableProcessors() + "\nMemory (bytes): " + Runtime.getRuntime().maxMemory();
-    }
-    */
-
     /**
 	 * Lista Frutas.
 	 * 
@@ -68,7 +60,7 @@ public class FruitResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	@CircuitBreaker(requestVolumeThreshold = 10, failureRatio = 0.5, delay = 2500) // fault tolerance
 	@Counted(name = "listarCount", description = "Total de chamadas") // metrics
-	@Timed(name = "listarTimer", description = "Tempo de execucao", unit = MetricUnits.MILLISECONDS) // metrics
+	@Timed(name = "listarTimer", description = "Tempo de execução", unit = MetricUnits.MILLISECONDS) // metrics
 	@Parameter(name = "offset", description = "Índice de início para retorno das ocorrências. Default=0.", in = ParameterIn.QUERY)
 	@Parameter(name = "limit", description = "Quantidade de ocorrências que devem ser retornadas. Máximo=100, Mínimo=1.", in = ParameterIn.QUERY)
 	@Parameter(name = "sortField", description = "Nome do atributo utilizado para ordenação das ocorrências. Default=''.", in = ParameterIn.QUERY)
@@ -88,10 +80,10 @@ public class FruitResource {
 
 			quantidadeTotalListagem = fruitBusiness.obterQuantidade();
 		} catch (ApplicationServiceException appEx) {
-			LOG.log(Level.FINE,"Problema na execucao do FruitService: listar", appEx);
+			LOG.log(Level.FINE,"Problema na execução do FruitService: listar", appEx);
 			return Response.status(appEx.getStatusCode()).entity(new MessageService(appEx.getMessage())).build();
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE,"Erro na execucao do FruitService: listar", e);
+			LOG.log(Level.SEVERE,"Erro na execução do FruitService: listar", e);
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
 					.entity(new MessageService(MessageBundle.getMessage("fruit.erro", new String[] { "listar" })))
 					.build();
@@ -99,6 +91,112 @@ public class FruitResource {
 
 		return Response.ok().entity(fruits).header("Pagination-Count", quantidadeTotalListagem).build();
 	}
+
+
+	@GET
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@CircuitBreaker(requestVolumeThreshold = 10, failureRatio = 0.5, delay = 2500) // fault tolerance
+	@Counted(name = "obterPorIdCount", description = "Total de chamadas") // metrics
+	@Timed(name = "obterPorIdTimer", description = "Tempo de execução", unit = MetricUnits.MILLISECONDS) // metrics
+	public Response obterPorId(@PathParam("id") Integer id) {
+		
+		FruitVO fruitVO = null;
+		try {
+			fruitVO = new FruitVO(fruitBusiness.obterPorId(id));
+		} catch (ApplicationServiceException appEx) {
+			LOG.log(Level.FINE,"Problema na execução do FruitService: obterPorId", appEx);
+			return Response.status(appEx.getStatusCode())
+					.entity(new MessageService(appEx.getMessage(), appEx.getErrorList())).build();
+		} catch (Exception e) {
+			LOG.log(Level.SEVERE,"Erro na execução do FruitService: obterPorId.", e);			
+			
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(new MessageService(MessageBundle.getMessage("fruit.erro", new String[] { "obter" })))
+					.build();
+		}
+
+		return Response.status(Response.Status.OK).entity(fruitVO).build();
+	}
+
+
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@CircuitBreaker(requestVolumeThreshold = 10, failureRatio = 0.5, delay = 2500) // fault tolerance
+	@Counted(name = "incluirCount", description = "Total de chamadas") // metrics
+	@Timed(name = "incluirTimer", description = "Tempo de execução", unit = MetricUnits.MILLISECONDS) // metrics
+	public Response incluir(FruitVO fruitVO) {
+
+		URI location = null;
+		try {
+			fruitBusiness.incluir(fruitVO.toEntity());
+			location = new URI("v1/fruit/" + fruitVO.getId());
+		} catch (ApplicationServiceException appEx) {
+			LOG.log(Level.FINE,"Problema na execução do FruitService: incluir", appEx);
+			return Response.status(appEx.getStatusCode())
+					.entity(new MessageService(appEx.getMessage(), appEx.getErrorList())).build();
+		} catch (Exception e) {
+			LOG.log(Level.SEVERE,"Erro na execução do FruitService: incluir", e);
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(new MessageService(MessageBundle.getMessage("fruit.erro", new String[] { "incluir" })))
+					.build();
+		}
+
+		return Response.status(Response.Status.CREATED).contentLocation(location).build();
+	}
+
+
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@CircuitBreaker(requestVolumeThreshold = 10, failureRatio = 0.5, delay = 2500) // fault tolerance
+	@Counted(name = "alterarCount", description = "Total de chamadas") // metrics
+	@Timed(name = "alterarTimer", description = "Tempo de execução", unit = MetricUnits.MILLISECONDS) // metrics
+	public Response alterar(FruitVO fruitVO) {
+
+		try {
+			fruitBusiness.alterar(fruitVO.toEntity());
+		} catch (ApplicationServiceException appEx) {
+			LOG.log(Level.FINE,"Problema na execução do FruitService: alterar", appEx);
+			return Response.status(appEx.getStatusCode())
+					.entity(new MessageService(appEx.getMessage(), appEx.getErrorList())).build();
+		} catch (Exception e) {
+			LOG.log(Level.SEVERE,"Erro na execução do FruitService: alterar", e);
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(new MessageService(MessageBundle.getMessage("fruit.erro", new String[] { "alterar" })))
+					.build();
+		}
+
+		return Response.status(Response.Status.NO_CONTENT).build();
+	}
+
+
+
+	@DELETE
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@CircuitBreaker(requestVolumeThreshold = 10, failureRatio = 0.5, delay = 2500) // fault tolerance
+	@Counted(name = "excluirCount", description = "Total de chamadas") // metrics
+	@Timed(name = "excluirTimer", description = "Tempo de execução", unit = MetricUnits.MILLISECONDS) // metrics
+	public Response excluir(@PathParam("id") Integer id) {
+
+		try {
+			fruitBusiness.excluir(id);
+		} catch (ApplicationServiceException appEx) {
+			LOG.log(Level.FINE,"Problema na execução do FruitService: excluir", appEx);
+			return Response.status(appEx.getStatusCode())
+					.entity(new MessageService(appEx.getMessage(), appEx.getErrorList())).build();
+		} catch (Exception e) {
+			LOG.log(Level.SEVERE,"Erro na execução do FruitService: excluir", e);
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(new MessageService(MessageBundle.getMessage("fruit.erro", new String[] { "excluir" })))
+					.build();
+		}
+
+		return Response.status(Response.Status.NO_CONTENT).build();
+	}
+
 
 
 
