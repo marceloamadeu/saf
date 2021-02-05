@@ -1,7 +1,7 @@
 <template>
   <div class="fluid">
     <h1 class="app-title">Cadastrar Fruta</h1>
-
+    
     <b-row>
       <b-col md="12">
         <b-card>
@@ -67,7 +67,7 @@ import UtilAPI from '@/api/UtilAPI'
 import events from '@/util/events'
 
 export default {
-  name: 'EditarFruta',
+  name: 'EditarFruit',
   data () {
     return {
       valid: false,
@@ -106,7 +106,7 @@ export default {
             .then(() => {
               events.$emit('fruitAlterada', this.fruit)
               this.clear()
-              this.$store.dispatch('novaFruit')
+              this.$store.dispatch('newFruit')
               this.$store.commit('setMessages', { message: 'Sucesso ao alterar fruta', variant: 'success' })
             }).catch(err => {
               this.$store.commit('setMessages', err.response.data)
@@ -116,11 +116,12 @@ export default {
     },
     clear () {
       this.$validator.reset()
-      this.$store.dispatch('novaFruit')
+      this.$store.dispatch('newFruit')
       this.$store.dispatch('limparMensagens')
     }
   }
 }
+
 </script>
 
 <style>

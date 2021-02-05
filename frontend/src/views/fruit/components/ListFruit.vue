@@ -2,6 +2,14 @@
   <div class="fluid">
       <b-card>
 
+
+
+      <b-link title="Alterar" @click="increment()" class="btn btn-outline-info">
+        <i class="fas fa-pencil-alt"></i>
+      </b-link>&nbsp;
+
+
+
         <b-table
           show-empty
           stacked="sm"
@@ -20,8 +28,6 @@
             <b-spinner class="align-middle"></b-spinner>
             <strong> Pesquisando...</strong>
           </div>    
-
-          <template v-slot:cell(fruit)="data">{{data.item.fruit.name}}</template>
 
           <template v-slot:cell(acoes)="data">
             <div class="d-flex justify-content-end">
@@ -86,6 +92,22 @@ export default {
       set () {
         this.$store.commit('setFruits', this.fruits)
       }
+    },
+    fruit: {
+      get () {
+        return this.$store.getters.getFruit
+      },
+      set () {
+        this.$store.commit('setFruit', this.fruit)
+      }
+    },
+    count: {
+      get () {
+        return this.$store.getters.getCount
+      },
+      set () {
+        this.$store.commit('setCount', this.count)
+      }
     }
   },
   created () {
@@ -102,7 +124,7 @@ export default {
         if (result) {
           UtilAPI.salvarFruit(this.fruit)
             .then(() => {
-              events.$emit('fruitAlterada', this.serie)
+              events.$emit('fruitAlterada', this.fruit)
               this.clear()
               this.$store.commit('setMessages', { message: 'Sucesso ao cadastrar Fruit', variant: 'success' })
             }).catch(err => {
@@ -112,8 +134,23 @@ export default {
       })
     }, 
     iniciarEditar (fruit) {
-      let obj = JSON.parse(JSON.stringify(fruit))
-      this.$store.commit('setFruit', obj)
+      let obj = JSON.parse(JSON.stringify(fruit))            
+      this.$store.commit('setFruit', obj)            
+    },
+    increment() {    
+      this.$store.commit('setCount') 
+          
+
+      let obj = JSON.parse('{"name":"1355"}') 
+      this.$store.commit('setFruit', obj)       
+      //UtilAPI.salvarFruit(obj);
+      //alert(obj.name)
+      
+
+      this.$store.commit('setMessages', {
+        message: 'Contador: ' + this.count,
+        variant: 'success'
+      }) 
     },
     deletarFruit(fruit) {
       UtilAPI.deletarFruit(fruit)

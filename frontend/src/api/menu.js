@@ -15,6 +15,12 @@ export default {
       url: '/fruits',
       icon: 'fas fa-chalkboard',      
     },
+
+    {
+      name: 'Frutas Teste',
+      url: '/fruits_test',
+      icon: 'fas fa-chalkboard',      
+    },
     
 
   ],
