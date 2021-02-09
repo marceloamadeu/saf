@@ -1,6 +1,7 @@
 <template>
   <div class="fluid">
-    <h1 class="app-title">Cadastrar Fruta</h1>
+    <h1 v-if="fruit.id" class="app-title">Alterar Fruta</h1>
+    <h1 v-else class="app-title">Cadastrar Fruta</h1>
     
     <b-row>
       <b-col md="12">
@@ -10,32 +11,36 @@
             <b-badge variant="mute" class="float-right small">(*) Obrigatório</b-badge>
           </div>
 
-          <b-form >
+
+          <validationObserver v-slot="{ handleSubmit }">
+          <b-form @submit.prevent="handleSubmit(salvarFruit)">
             <!-- Nome -->
             <b-row>
               <b-col lg="6" sm="12">
                 <b-form-group
+                  id="name-group"
                   label="Nome:"
                   label-for="name"
-                  class="text-label required"
+                  class="text-label required"                  
                 >
-
-                  <b-form-input id="name"
-                  v-model="fruit.name"
-                  v-validate="'required|min:2'"
-                  data-vv-name="name"
-                  data-vv-as="Nome da Fruta"
-                  :error-messages="errors.collect('name')"
-                  :state="errors.has('name')==false?null:!errors.has('name')"
-                  trim
-                  :autofocus="true"></b-form-input>
-                  <span v-show="errors.has('name')" class="help is-danger">{{ errors.first('name') }}</span>
-
+                 
+                    <b-form-input
+                      id="name"
+                      v-model="fruit.name"     
+                      v-validate="'required|min:8'"               
+                      placeholder="Digite o Nome da Fruta"                      
+                      required
+                    ></b-form-input>
+                    
+                 
+                  
+                
                 </b-form-group>
               </b-col>
             </b-row>
 
           </b-form>
+          </validationObserver>
 
           <div slot="footer" class="center-xy">
             <b-button v-if="fruit.id" @click="alterarFruit()" variant="primary">
@@ -66,7 +71,7 @@
 import UtilAPI from '@/api/UtilAPI'
 import events from '@/util/events'
 
-export default {
+export default { 
   name: 'EditarFruit',
   data () {
     return {
@@ -85,8 +90,8 @@ export default {
     }
   },
   methods: {
-    salvarFruit () {
-      this.$validator.validateAll().then((result) => {
+    salvarFruit () {      
+      this.$validator.validateAll().then((result) => {        
         if (result) {
           UtilAPI.salvarFruit(this.fruit)
             .then(() => {
@@ -99,9 +104,10 @@ export default {
         }
       })
     },
-    alterarFruit () {
-      this.$validator.validateAll().then((result) => {
-        if (result) {
+    alterarFruit () {      
+      this.$validator.validateAll().then( (result) => {
+        if (result) {                  
+          console.log(this.fruit);          
           UtilAPI.alterarFruit(this.fruit)
             .then(() => {
               events.$emit('fruitAlterada', this.fruit)

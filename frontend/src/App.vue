@@ -19,7 +19,7 @@ export default {
     'admin': Admin,
     'loading': Loading,
     'blank': Blank,
-  }  
+  }
 }
 </script>
 
