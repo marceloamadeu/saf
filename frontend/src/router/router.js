@@ -3,7 +3,6 @@ import store from '@/store/store'
 import VueRouter from 'vue-router'
 import Home from '@/views/home/Home.vue'
 import Fruit from '@/views/fruit/Fruit.vue'
-import NewFruit from '@/views/fruit/components/EditFruit.vue'
 
 // error pages
 import AccessDenied from '@/layout/errors/Deny'
@@ -31,11 +30,6 @@ const routes = [
     path: '/fruits',
     name: 'fruit',
     component: Fruit
-  },
-  {
-    path: '/fruits_test',
-    name: 'fruit_test',
-    component: NewFruit
   },
   // error pages
   {

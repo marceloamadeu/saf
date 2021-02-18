@@ -2,14 +2,6 @@
   <div class="fluid">
       <b-card>
 
-
-
-      <b-link title="Alterar" @click="increment()" class="btn btn-outline-info">
-        <i class="fas fa-pencil-alt"></i>
-      </b-link>&nbsp;
-
-
-
         <b-table
           show-empty
           stacked="sm"
@@ -22,6 +14,7 @@
           :per-page="0"
           @sort-changed="sortingChanged"
           :busy="pesquisando"
+          :tbody-transition-props="transProps"
         >
           <div slot="empty" colspan="2" align="center">Não existe conteúdo a ser exibido</div>
           <div slot="table-busy" class="text-center text-danger my-2">
@@ -75,8 +68,8 @@ export default {
       ],
       totalRows: 1,
       currentPage: 1,
-      perPage: 5,
-      pageOptions: [5, 10, 15],
+      perPage: 10,
+      pageOptions: [10, 20, 30],
       sortBy: null,
       sortDesc: false,
       sortDirection: 'asc',
@@ -118,40 +111,11 @@ export default {
   mounted () {
     this.listFruit()
   },
-  methods: {   
-    salvarFruit() {
-      this.$validator.validateAll().then((result) => {
-        if (result) {
-          UtilAPI.salvarFruit(this.fruit)
-            .then(() => {
-              events.$emit('fruitAlterada', this.fruit)
-              this.clear()
-              this.$store.commit('setMessages', { message: 'Sucesso ao cadastrar Fruit', variant: 'success' })
-            }).catch(err => {
-              this.$store.commit('setMessages', err.response.data)
-            })
-        }
-      })
-    }, 
+  methods: {       
     iniciarEditar (fruit) {
       let obj = JSON.parse(JSON.stringify(fruit))            
       this.$store.commit('setFruit', obj)            
-    },
-    increment() {    
-      this.$store.commit('setCount') 
-          
-
-      let obj = JSON.parse('{"name":"1355"}') 
-      this.$store.commit('setFruit', obj)       
-      //UtilAPI.salvarFruit(obj);
-      //alert(obj.name)
-      
-
-      this.$store.commit('setMessages', {
-        message: 'Contador: ' + this.count,
-        variant: 'success'
-      }) 
-    },
+    },    
     deletarFruit(fruit) {
       UtilAPI.deletarFruit(fruit)
         .then(() => {

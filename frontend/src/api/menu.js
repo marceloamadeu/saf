@@ -7,21 +7,12 @@ export default {
       name: 'Inicial',
       url: '/home',
       icon: 'fas fa-chart-line',
-    },
-
-    
+    },    
     {
       name: 'Frutas',
       url: '/fruits',
       icon: 'fas fa-chalkboard',      
-    },
-
-    {
-      name: 'Frutas Teste',
-      url: '/fruits_test',
-      icon: 'fas fa-chalkboard',      
-    },
-    
+    }, 
 
   ],
 
